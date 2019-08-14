@@ -144,7 +144,7 @@ class Battery(object):
 
             self.prob += losses[i] == exports[i] * (1 - self.efficiency)
 
-        print('starting linear program for {}'.format(self))
+        # print('starting linear program for {}'.format(self))
         self.prob.solve()
 
         opt_results = {
@@ -152,7 +152,7 @@ class Battery(object):
             "status": LpStatus[self.prob.status]
         }
 
-        print('linear program for {} done - {}'.format(self, opt_results['status']))
+        # print('linear program for {} done - {}'.format(self, opt_results['status']))
 
         logger.info(json.dumps(opt_results))
 
